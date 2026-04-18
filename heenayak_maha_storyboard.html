@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>හීනයක් මා හා — Music Video Concept of Visuals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0D0C0A;
+      --bg2: #141210;
+      --bg3: #11100e;
+      --surface: #221F1B;
+      --surface2: #2C2820;
+      --border: rgba(255, 255, 255, 0.08);
+      --border2: rgba(255, 255, 255, 0.14);
+      --text: #F0EDE6;
+      --text2: #A09A8E;
+      --text3: #685E52;
+      --gold: #C8962A;
+      --gold2: #F0B840;
+      --pink: #D45880;
+      --teal: #2A8870;
+      --amber: #C87028;
+      --purple: #6050B8;
+      --accent: #E8B840;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Film grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* Page wrapper */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold2);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text2);
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+
+    .tag-gold {
+      background: rgba(200, 150, 42, 0.12);
+      color: var(--gold2);
+      border-color: rgba(200, 150, 42, 0.3);
+    }
+
+    .tag-pink {
+      background: rgba(212, 88, 128, 0.12);
+      color: #F090B0;
+      border-color: rgba(212, 88, 128, 0.3);
+    }
+
+    .tag-teal {
+      background: rgba(42, 136, 112, 0.12);
+      color: #60C8A8;
+      border-color: rgba(42, 136, 112, 0.3);
+    }
+
+    .tag-purple {
+      background: rgba(96, 80, 184, 0.12);
+      color: #9080E0;
+      border-color: rgba(96, 80, 184, 0.3);
+    }
+
+    .tag-amber {
+      background: rgba(200, 112, 40, 0.12);
+      color: #E09050;
+      border-color: rgba(200, 112, 40, 0.3);
+    }
+
+    /* ─── SCENE BLOCK ─── */
+    .scene {
+      margin: 56px 0;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scene:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .scene:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .scene:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .scene:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    .scene-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .scene-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(200, 150, 42, 0.15);
+      min-width: 56px;
+      user-select: none;
+      margin-top: -8px;
+    }
+
+    .scene-meta {
+      flex: 1;
+    }
+
+    .scene-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text3);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .scene-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .scene-time {
+      font-size: 14px;
+      color: var(--text2);
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ─── SHOTS GRID ─── */
+    .shots-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .shots-grid.two-col {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (max-width: 720px) {
+
+      .shots-grid,
+      .shots-grid.two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .shots-grid,
+      .shots-grid.two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── SHOT CARD ─── */
+    .shot-card {
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: default;
+    }
+
+    .shot-frame {
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shot-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .shot-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.65);
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .shot-info {
+      padding: 12px 14px;
+    }
+
+    .shot-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .shot-desc {
+      font-size: 16px;
+      color: var(--text2);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .shot-specs {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .spec {
+      font-size: 9px;
+      padding: 1px 7px;
+      border-radius: 6px;
+      border: 1px solid var(--border2);
+      color: var(--text3);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── SCENE NOTE ─── */
+    .scene-note {
+      background: var(--bg3);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    .scene-note strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 40px 0;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── PRODUCTION FOOTER ─── */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .prod-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .prod-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .prod-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text3);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .prod-list {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 2;
+    }
+
+    /* ─── FILMSTRIP ACCENT ─── */
+    .filmstrip {
+      display: flex;
+      gap: 3px;
+      padding: 14px 0;
+      overflow: hidden;
+      margin: 0 -32px;
+      padding-left: 32px;
+    }
+
+    .film-hole {
+      flex-shrink: 0;
+      width: 18px;
+      height: 12px;
+      border-radius: 3px;
+      background: transparent;
+      border: 1px solid var(--border2);
+    }
+
+    /* ─── SCROLL INDICATOR ─── */
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 24px 0 0 2px;
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-line {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-eyebrow">Music Video - Concept of Visuals</div>
+      <h1 class="hero-title">හීනයක් <em>මා හා</em></h1>
+      <p class="hero-sub">Pawie &nbsp;·&nbsp; R&B / Soul &nbsp;·&nbsp; 108 BPM &nbsp;·&nbsp; 03:55</p>
+      <div class="hero-tags">
+        <span class="tag tag-gold">Self-liberation</span>
+        <span class="tag tag-teal">4 Scnearios</span>
+        <span class="tag tag-amber">108 BPM</span>
+        <span class="tag tag-pink">SM Ent. References</span>
+        <span class="tag tag-purple">Port City Colombo</span>
+      </div>
+    </header>
+
+    <!-- ══════════════════════════════ SCENE 01 ══════════════════════════════ -->
+    <section class="scene">
+      <div class="scene-header">
+        <div class="scene-num">01</div>
+        <div class="scene-meta">
+          <div class="scene-label">Scene One</div>
+          <div class="scene-name">The Corporate Girl working at Café</div>
+          <!-- <div class="scene-time">0:00 – 0:45 &nbsp;·&nbsp; Verse 1</div> -->
+        </div>
+        <span class="tag tag-teal">Establishing</span>
+      </div>
+
+      <div class="scene-note">
+        <strong>Visual tone:</strong> Warm amber + dark wood. She looks purposeful, not trapped — this is a launchpad,
+        not a prison. Reference images: café shots (Images 6, 7, 8). Intercut slow push-ins with lyric beats.
+        &nbsp;
+        <br>
+        <br>
+        <strong>Wardrobe:</strong> Smart-casual blazer, glasses, structured leather bag. &nbsp;
+        <br>
+        <br>
+        <strong>Smash cut:</strong> At chorus drop, hard cut from café silence → dance burst.
+      </div>
+
+      <div class="shots-grid">
+
+        <!-- Shot 1.1 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Wide — café interior</div>
+            <div class="shot-desc">She's seated alone at window counter, laptop open, city light filtering in. Busy
+              background bokeh, she's in sharp focus.</div>
+
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-11%20at%209.56.06%20AM.jpeg" />
+            <span class="shot-badge">Wide</span>
+          </div>
+
+          <img
+            src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-09%20at%2010.47.00%20PM.jpeg" />
+        </div>
+
+        <!-- Shot 1.2 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Side profile — screen glow on face</div>
+            <div class="shot-desc">Dark café ambiance. Screen light illuminates her face. Espresso machine softly
+              blurred behind. Moody, focused energy.</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-11%20at%209.56.07%20AM.jpeg" />
+            <span class="shot-badge">Mid / Profile</span>
+          </div>
+
+        </div>
+
+
+        <!-- Shot 1.3 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Overhead — hands on keyboard</div>
+            <div class="shot-desc">Top-down close on laptop + hands. Coffee cup to side. Code or dashboard visible on
+              screen. Sunglasses resting nearby.</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-11%20at%209.56.07%20AM%20(1).jpeg" />
+            <span class="shot-badge">OTS / Overhead</span>
+          </div>
+        </div>
+
+      </div><!-- /shots-grid -->
+
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════ SCENE 02 ══════════════════════════════ -->
+    <section class="scene">
+      <div class="scene-header">
+        <div class="scene-num">02</div>
+        <div class="scene-meta">
+          <div class="scene-label">Scene Two</div>
+          <div class="scene-name">The Dance — Performance Shots</div>
+          <!-- <div class="scene-time">1:00 – 1:30 &nbsp;·&nbsp; Bridge</div> -->
+        </div>
+        <span class="tag tag-pink">High energy</span>
+      </div>
+
+      <div class="scene-note">
+        <strong>Visual tone:</strong> High-contrast daylight, open concrete space with coastal backdrop (Port City
+        parking area). Lead in vivid pink, backup in dark athletic wear. Fast cuts on beat — 1 cut per bar at chorus.
+        Reference: Image 10 (Tiffany "I Just Wanna Dance" dance MV frame).
+        &nbsp;
+        <br>
+        <br>
+        <strong>Transitions:</strong> Smash cut from café quiet → dance burst at chorus drop.
+      </div>
+
+      <div class="shots-grid">
+
+        <!-- Shot 2.1 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Wide — full formation</div>
+            <div class="shot-desc">Lead in pink centre, 6 backup dancers in black. Open parking lot by Port City
+              coastline. Full formation captured mid-motion.</div>
+
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20184231.png" />
+            <span class="shot-badge">Formation / Wide</span>
+          </div>
+
+        </div>
+
+        <!-- Shot 2.2 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Low angle — lead dancer power pose</div>
+            <div class="shot-desc">Camera at ankle level looking up. Sky fills frame. Lead mid-air, silhouetted and
+              empowering. Ref: Tiffany "I Just Wanna Dance".</div>
+
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20133957.png" /><svg
+              viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+              <!-- Low angle looking up at lead -->
+              <rect width="320" height="180" fill="#A0B8D0" />
+              <!-- Sky blue dominating -->
+              <rect width="320" height="135" fill="#90AECB" />
+              <rect width="320" height="60" fill="#A0BEDA" opacity="0.5" />
+              <!-- Sunlight bloom top -->
+              <ellipse cx="200" cy="10" rx="60" ry="30" fill="white" opacity="0.15" />
+              <!-- Concrete edge at bottom -->
+              <rect x="0" y="135" width="320" height="45" fill="#AAAAB0" />
+              <!-- Lead dancer large, low angle perspective -->
+              <ellipse cx="160" cy="75" rx="26" ry="28" fill="#E870A8" opacity="0.95" />
+              <!-- Hair flying up (low angle = hair appears above) -->
+              <path d="M144 60 Q148 35 162 42 Q175 38 168 62" fill="#2A1810" opacity="0.9" />
+              <path d="M144 65 Q130 45 125 30" stroke="#2A1810" stroke-width="6" stroke-linecap="round" fill="none"
+                opacity="0.7" />
+              <!-- Arms in powerful pose spread wide -->
+              <line x1="134" y1="80" x2="88" y2="60" stroke="#E870A8" stroke-width="8" stroke-linecap="round" />
+              <line x1="186" y1="80" x2="232" y2="60" stroke="#E870A8" stroke-width="8" stroke-linecap="round" />
+              <!-- Legs in motion - one knee up -->
+              <line x1="150" y1="100" x2="138" y2="135" stroke="#E870A8" stroke-width="9" stroke-linecap="round" />
+              <line x1="170" y1="102" x2="175" y2="140" stroke="#E870A8" stroke-width="9" stroke-linecap="round" />
+              <!-- Knee guard -->
+              <ellipse cx="175" cy="128" rx="7" ry="5" fill="#1A1A1A" opacity="0.6" />
+              <!-- Motion blur lines -->
+              <line x1="88" y1="60" x2="70" y2="58" stroke="#E870A8" stroke-width="2" opacity="0.3" />
+              <line x1="232" y1="60" x2="250" y2="58" stroke="#E870A8" stroke-width="2" opacity="0.3" />
+              <!-- Background dancers small -->
+              <ellipse cx="60" cy="115" rx="8" ry="8" fill="#1A1A20" opacity="0.5" />
+              <ellipse cx="260" cy="112" rx="8" ry="8" fill="#1A1A20" opacity="0.5" />
+              <!-- Label -->
+              <rect x="0" y="163" width="320" height="17" fill="#0A0A12" opacity="0.55" />
+              <text font-size="9" fill="#5068A0" x="8" y="174" font-family="sans-serif">low angle · lead dancer power ·
+                motion blur</text>
+            </svg>
+            <span class="shot-badge">Low angle</span>
+          </div>
+
+        </div>
+
+        <!-- Shot 2.3 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Drone overhead — choreography pattern</div>
+            <div class="shot-desc">Bird's-eye view of formation geometry. Pink lead at centre, dancers radiating
+              outward. Synchronized movement creates visual symmetry.</div>
+
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20184304.png" />
+            <span class="shot-badge">Drone / Top</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════ SCENE 03 ══════════════════════════════ -->
+    <section class="scene">
+      <div class="scene-header">
+        <div class="scene-num">03</div>
+        <div class="scene-meta">
+          <div class="scene-label">Scene Three</div>
+          <div class="scene-name">The World — Port City Scenery</div>
+          <!-- <div class="scene-time">2:50 – 3:15 &nbsp;·&nbsp; Break / Emotional climax &nbsp;·&nbsp; "Strong girl, born to fly"</div> -->
+        </div>
+        <span class="tag tag-amber">Cinematic</span>
+      </div>
+
+      <div class="scene-note">
+        <strong>Visual tone:</strong> Golden hour to dusk. Colombo Port City as symbol of forward momentum — a city
+        building itself, mirroring the protagonist's journey. Warm orange, deep blues, silhouette palette. Intercut with
+        Scene 4 close-ups.
+        &nbsp;
+        <br>
+        <br>
+        <strong>Music sync:</strong> Wide shots hold on sustained notes in the Break section
+        (2:50–3:15).
+      </div>
+
+      <div class="shots-grid two-col">
+
+        <!-- Shot 3.1 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Port City bridge — golden hour</div>
+            <div class="shot-desc">The iconic arch cable bridge at sunset. People silhouetted on the walkway. Slow pan
+              right captures Colombo skyline behind. Reference: Image 3.</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-09%20at%2010.23.02%20PM.jpeg" />
+            <span class="shot-badge">Scenic / Wide</span>
+          </div>
+        </div>
+
+        <!-- Shot 3.2 -->
+        <div class="shot-card">
+
+          <div class="shot-info">
+            <div class="shot-title">Beach — Colombo skyline at dusk</div>
+            <div class="shot-desc">Wide shot from Port City beach, towers silhouetted against burning orange sunset.
+              Slow zoom out reveals full skyline. Reference: Image 4.</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-09%20at%2010.23.03%20PM%20(1).jpeg" />
+            <span class="shot-badge">Scenic / Wide</span>
+          </div>
+        </div>
+
+        <!-- Shot 3.3 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Promenade — walking shot</div>
+            <div class="shot-desc">She walks along curved waterfront railing, palm trees left, Colombo skyline across
+              water. Slow gimbal tracking alongside her. Reference: Image 5.</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-09%20at%2010.23.03%20PM.jpeg" />
+            <span class="shot-badge">Tracking</span>
+          </div>
+        </div>
+        <div class="shot-card">
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-09%20at%2010.20.24%20PM.jpeg" />
+          </div>
+        </div>
+
+        <!-- Shot 3.4 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Port City complex — architectural shot</div>
+            <div class="shot-desc">Low-angle upward shot of the angular Port City building. Container cranes visible in
+              BG. Establishes the "new world" aesthetic. Reference: Image 2.</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/WhatsApp%20Image%202026-04-09%20at%2010.23.05%20PM.jpeg" />
+            <span class="shot-badge">Establishing</span>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════ SCENE 04 ══════════════════════════════ -->
+    <section class="scene">
+      <div class="scene-header">
+        <div class="scene-num">04</div>
+        <div class="scene-meta">
+          <div class="scene-label">Scene Four</div>
+          <div class="scene-name">Emotion — Close-up &amp; Detail Shots</div>
+          <!-- <div class="scene-time">Woven throughout &nbsp;·&nbsp; Pre-chorus &amp; outro &nbsp;·&nbsp; "A dream within me"</div> -->
+        </div>
+        <span class="tag tag-purple">aesthetic</span>
+      </div>
+
+      <div class="scene-note">
+        <strong>Visual tone:</strong> Intimate textures — skin, fabric, metal. Alternates between cool blue-white
+        (Taeyeon ref) and warm amber (beach). These shots are woven throughout the video as emotional punctuation.
+        &nbsp;
+        <br>
+        <br>
+        <strong>Key moment:</strong> Hold a 3-second close-up on her eyes at the final chorus resolve — the "I
+        will win" moment. Iris reveal on beat 1 of outro.
+      </div>
+
+      <div class="shots-grid">
+
+        <!-- Shot 4.1 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Extreme CU — face, wind in hair</div>
+            <div class="shot-desc">Profile shot, hair blowing, eyes closed then opening. White fabric/light behind. Raw,
+              cinematic emotion. Direct reference: Taeyeon "Why" MV (Image 9).</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20133852.png" />
+            <span class="shot-badge">Extreme CU</span>
+          </div>
+
+        </div>
+
+        <!-- Shot 4.2 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Beach silhouette — walking into sunset</div>
+            <div class="shot-desc">Her silhouette walking along shoreline, mist at ankles, flowy jacket. Warm orange
+              sky. Freedom and forward motion. Direct reference: Tiffany "I Just Wanna Dance" (Image 1).</div>
+          </div>
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-13%20124804.png" />
+            <span class="shot-badge">Silhouette / Wide</span>
+          </div>
+
+        </div>
+
+        <!-- Shot 4.3 -->
+        <div class="shot-card">
+          <div class="shot-info">
+            <div class="shot-title">Detail montage — 4-split screen</div>
+            <div class="shot-desc">Quick-cut 4-panel: boots on pavement / hands on keyboard / watch detail / hair in
+              wind. Rapid intercut as energy builds at pre-chorus and outro.</div>
+          </div>
+          <div class="shot-frame">
+             <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20194241.png" />
+            <span class="shot-badge">Detail 4-split</span>
+          </div>
+        </div>
+
+                <div class="shot-card">
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20194303.png" />
+          </div>
+        </div>
+
+                <div class="shot-card">
+          <div class="shot-frame">
+            <img
+              src="https://raw.githubusercontent.com/pawie729/hma_mv_ref/main/Screenshot%202026-04-18%20194412.png" />
+          </div>
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <div class="divider">production notes</div>
+
+    <!-- PRODUCTION FOOTER -->
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-label">Shoot locations</div>
+        <div class="prod-list">
+          Arch bridge walkway, Beach &amp; promenade in Port City<br>
+          Open parking lot , Food Harbour in Port City <br>
+          Dark ambient café (Barista @ Food Harbour)
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-label">References used</div>
+        <div class="prod-list">
+          <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/E0Y3ABqK7M4?si=mDEydyk0jXoshPwS">Tiffany — I Just Wanna Dance </a><br>
+          <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/4OrCA1OInoo?si=ABntSBIvAlHPsnoE">Taeyeon — I (SM Ent.)</a><br>
+
+          <a  target="_blank" rel="noopener noreferrer" href="https://youtu.be/WkdtmT8A2iY?si=vpHbX8Dkh4SAv5nu">Taeyeon — Why (SM Ent.) </a><br>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+</body>
+
+</html>
